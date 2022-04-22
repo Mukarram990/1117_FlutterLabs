@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:question1/firstrowchild.dart';
-import 'package:question1/lastrowchild.dart';
 import 'package:question1/result.dart';
 import 'constants.dart';
 import 'containerwidget.dart';
@@ -154,18 +153,113 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                   child: ContainerWidget(
                 color: kInactiveCardColor,
-                child: lastrowchild(
-                  text: "WEIGHT",
-                  number: weight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Weight",
+                      style: kLabelTextStyle,
+                    ),
+                    Text(
+                      weight.toString(),
+                      style: kNumberTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RawMaterialButton(
+                          child: Icon(Icons.remove),
+                          constraints: BoxConstraints.tightFor(
+                            width: 56.0,
+                            height: 56.0,
+                          ),
+                          elevation: 6.0,
+                          shape: CircleBorder(),
+                          fillColor: Color(0xFF4C4F5E),
+                          onPressed: () {
+                            setState(() {
+                              weight -= 1;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        RawMaterialButton(
+                          child: Icon(Icons.add),
+                          constraints: BoxConstraints.tightFor(
+                            width: 56.0,
+                            height: 56.0,
+                          ),
+                          elevation: 6.0,
+                          shape: CircleBorder(),
+                          fillColor: Color(0xFF4C4F5E),
+                          onPressed: () {
+                            setState(() {
+                              weight += 1;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               )),
               Expanded(
                   child: ContainerWidget(
-                      color: kInactiveCardColor,
-                      child: lastrowchild(
-                        text: "AGE",
-                        number: age,
-                      ))),
+                color: kInactiveCardColor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Age",
+                      style: kLabelTextStyle,
+                    ),
+                    Text(
+                      age.toString(),
+                      style: kNumberTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RawMaterialButton(
+                          child: Icon(Icons.remove),
+                          constraints: BoxConstraints.tightFor(
+                            width: 56.0,
+                            height: 56.0,
+                          ),
+                          elevation: 6.0,
+                          shape: CircleBorder(),
+                          fillColor: Color(0xFF4C4F5E),
+                          onPressed: () {
+                            setState(() {
+                              age -= 1;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        RawMaterialButton(
+                          child: Icon(Icons.add),
+                          constraints: BoxConstraints.tightFor(
+                            width: 56.0,
+                            height: 56.0,
+                          ),
+                          elevation: 6.0,
+                          shape: CircleBorder(),
+                          fillColor: Color(0xFF4C4F5E),
+                          onPressed: () {
+                            setState(() {
+                              age += 1;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )),
             ],
           )),
           GestureDetector(

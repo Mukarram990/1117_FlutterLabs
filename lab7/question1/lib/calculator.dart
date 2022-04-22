@@ -6,7 +6,9 @@ class Calculator {
 
   double _bmi=0;
 
-  Calculator({required this.height, required this.weight});
+  Calculator({required this.height, required this.weight}){
+    _bmi = weight / pow(height / 100, 2);
+  }
 
   String calculateBMI() {
     _bmi = weight / pow(height / 100, 2);
