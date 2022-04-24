@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Homepage());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Homepage extends StatefulWidget {
+  const Homepage({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _HomepageState extends State<Homepage> {
   String text = "Location";
   Position p = Position(
       longitude: 0.0,
@@ -31,26 +31,32 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
+  void initState() {
+    getLocation();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData().copyWith(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
-        primary:const Color.fromARGB(255, 11, 79, 134),
+        primary: Colors.red,
         minimumSize: Size(40, 40),
       ))),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Geo Application"),
+          title: const Text("Location on Page Load"),
           centerTitle: true,
-          backgroundColor:const Color.fromARGB(255, 11, 79, 134)
+          backgroundColor: Colors.red,
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:[
-                Text(
-                  text.toString(),
+            children: [
+              Text(
+                text.toString(),
                 style: TextStyle(fontSize: 25, color: Colors.red),
               ),
               SizedBox(
@@ -72,7 +78,6 @@ class _MyAppState extends State<MyApp> {
                 height: 30,
               ),
               const Text("Note: Click button two time for the first time.")
-              
             ],
           ),
         ),

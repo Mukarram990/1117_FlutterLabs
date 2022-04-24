@@ -1,21 +1,45 @@
 import 'package:flutter/material.dart';
+import 'secondscreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MaterialApp(
+      home: FirstScreen(),
+    ),
+  );
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Second Screen Loader"),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+                minimumSize:const Size(40, 40),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SecondScreen()));
+              },
+              child: const Text("Goto Second Screen"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
